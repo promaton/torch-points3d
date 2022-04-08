@@ -1,8 +1,8 @@
 import os
-import torchnet as tnt
+# import torchnet as tnt
 import torch
 from typing import Dict, Any
-import wandb
+# import wandb
 from torch.utils.tensorboard import SummaryWriter
 import logging
 
@@ -66,7 +66,8 @@ class BaseTracker:
                 continue
             loss_key = "%s_%s" % (self._stage, key)
             if loss_key not in self._loss_meters:
-                self._loss_meters[loss_key] = tnt.meter.AverageValueMeter()
+                pass
+                # self._loss_meters[loss_key] = tnt.meter.AverageValueMeter()
             self._loss_meters[loss_key].add(loss)
 
     @staticmethod
@@ -91,7 +92,7 @@ class BaseTracker:
     def publish_to_wandb(self, metrics, epoch):
         wandb_metrics = metrics.copy()
         wandb_metrics["epoch"] = epoch
-        wandb.log(wandb_metrics)
+        # wandb.log(wandb_metrics)
 
     def publish(self, epoch):
         """Publishes the current metrics to wandb and tensorboard

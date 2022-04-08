@@ -8,7 +8,7 @@ import sys
 import csv
 import logging
 import numpy as np
-from plyfile import PlyData, PlyElement
+# from plyfile import PlyData, PlyElement
 from torch_geometric.data import Data, InMemoryDataset, download_url, extract_zip
 import torch_geometric.transforms as T
 import multiprocessing
@@ -241,33 +241,35 @@ def read_label_mapping(filename, label_from="raw_category", label_to="nyu40id"):
 
 def read_mesh_vertices(filename):
     """read XYZ for each vertex."""
-    assert os.path.isfile(filename)
-    with open(filename, "rb") as f:
-        plydata = PlyData.read(f)
-        num_verts = plydata["vertex"].count
-        vertices = np.zeros(shape=[num_verts, 3], dtype=np.float32)
-        vertices[:, 0] = plydata["vertex"].data["x"]
-        vertices[:, 1] = plydata["vertex"].data["y"]
-        vertices[:, 2] = plydata["vertex"].data["z"]
-    return vertices
+    pass
+    # assert os.path.isfile(filename)
+    # with open(filename, "rb") as f:
+        # plydata = PlyData.read(f)
+        # num_verts = plydata["vertex"].count
+        # vertices = np.zeros(shape=[num_verts, 3], dtype=np.float32)
+        # vertices[:, 0] = plydata["vertex"].data["x"]
+        # vertices[:, 1] = plydata["vertex"].data["y"]
+        # vertices[:, 2] = plydata["vertex"].data["z"]
+    # return vertices
 
 
 def read_mesh_vertices_rgb(filename):
     """read XYZ RGB for each vertex.
     Note: RGB values are in 0-255
     """
-    assert os.path.isfile(filename)
-    with open(filename, "rb") as f:
-        plydata = PlyData.read(f)
-        num_verts = plydata["vertex"].count
-        vertices = np.zeros(shape=[num_verts, 6], dtype=np.float32)
-        vertices[:, 0] = plydata["vertex"].data["x"]
-        vertices[:, 1] = plydata["vertex"].data["y"]
-        vertices[:, 2] = plydata["vertex"].data["z"]
-        vertices[:, 3] = plydata["vertex"].data["red"]
-        vertices[:, 4] = plydata["vertex"].data["green"]
-        vertices[:, 5] = plydata["vertex"].data["blue"]
-    return vertices
+    pass
+    # assert os.path.isfile(filename)
+    # with open(filename, "rb") as f:
+    #     plydata = PlyData.read(f)
+    #     num_verts = plydata["vertex"].count
+    #     vertices = np.zeros(shape=[num_verts, 6], dtype=np.float32)
+    #     vertices[:, 0] = plydata["vertex"].data["x"]
+    #     vertices[:, 1] = plydata["vertex"].data["y"]
+    #     vertices[:, 2] = plydata["vertex"].data["z"]
+    #     vertices[:, 3] = plydata["vertex"].data["red"]
+    #     vertices[:, 4] = plydata["vertex"].data["green"]
+    #     vertices[:, 5] = plydata["vertex"].data["blue"]
+    # return vertices
 
 
 def read_aggregation(filename):

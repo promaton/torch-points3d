@@ -6,7 +6,7 @@ import h5py
 import torch
 import random
 import glob
-from plyfile import PlyData, PlyElement
+# from plyfile import PlyData, PlyElement
 from torch_geometric.data import InMemoryDataset, Data, extract_zip, Dataset
 from torch_geometric.data.dataset import files_exist
 from torch_geometric.data import DataLoader
@@ -18,7 +18,7 @@ from tqdm.auto import tqdm as tq
 import csv
 import pandas as pd
 import pickle
-import gdown
+# import gdown
 import shutil
 
 from torch_points3d.datasets.samplers import BalancedRandomSampler
@@ -183,8 +183,8 @@ def to_ply(pos, label, file):
     ply_array["red"] = colors[:, 0]
     ply_array["green"] = colors[:, 1]
     ply_array["blue"] = colors[:, 2]
-    el = PlyElement.describe(ply_array, "S3DIS")
-    PlyData([el], byte_order=">").write(file)
+    # el = PlyElement.describe(ply_array, "S3DIS")
+    # PlyData([el], byte_order=">").write(file)
 
 
 ################################### 1m cylinder s3dis ###################################
@@ -348,7 +348,7 @@ class S3DISOriginalFused(InMemoryDataset):
                     "Press any key to continue, or CTRL-C to exit. By continuing, you confirm filling up the form."
                 )
                 input("")
-                gdown.download(self.download_url, osp.join(self.root, self.zip_name), quiet=False)
+                # gdown.download(self.download_url, osp.join(self.root, self.zip_name), quiet=False)
             extract_zip(os.path.join(self.root, self.zip_name), self.root)
             shutil.rmtree(self.raw_dir)
             os.rename(osp.join(self.root, self.file_name), self.raw_dir)
