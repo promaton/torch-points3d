@@ -11,8 +11,27 @@ documentation = "https://torch-points3d.readthedocs.io/en/latest/"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-torch-points-kernels = "^0.7.0"
 omegaconf = "^2.1.1"
+
+# Why do we modify the requirements?
+# This framework is intended for running common deep learning models for point cloud analysis.
+# The original requirements are quite diverse and are not suited for our purposes (i.e. running KPConv in OSS).
+# Hence, we strip out some of the dependencies that are not needed for our use case.
+# We also modify a few dependencies to provide direct links to wheels for faster installation.
+
+# Of course, being too specific with the requirements is not ideal, as we will need to update the requirements
+# when we update the framework OR when we change the dependencies such as torch-1.10.0-cu113.
+# That means, we need to update the requirements when we update the pytorch version OR when we change cuda version in OSS.
+
+# Another thing to note is that torch-cluster, torch-scatter and torch-sparse wheels are
+# provided by pyg.org, while torch-points-kernels whell is provided by promaton.
+# Please see OSS README for more details on how to build the wheels.
+
+torch-points-kernels = {url = "https://pypi.dev.promaton.ai/packages/torch_points_kernels-0.7.0-cp38-cp38-linux_x86_64.whl"}
+torch-cluster = {url = "https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_cluster-1.6.0-cp38-cp38-linux_x86_64.whl"}
+torch-scatter = {url = "https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_scatter-2.0.9-cp38-cp38-linux_x86_64.whl"}
+torch-sparse = {url = "https://data.pyg.org/whl/torch-1.10.0%2Bcu113/torch_sparse-0.6.13-cp38-cp38-linux_x86_64.whl"}
+torch-geometric = "^1.7.1"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.4"
