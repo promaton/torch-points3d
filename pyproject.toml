@@ -20,7 +20,7 @@ omegaconf = "^2.1.1"
 # We also modify a few dependencies to provide direct links to wheels for faster installation.
 
 # Of course, being too specific with the requirements is not ideal, as we will need to update the requirements
-# when we update the framework OR when we change the dependencies such as torch-1.10.0-cu113.
+# when we update the framework OR when we change the dependencies such as torch-1.10.0-cu113 or Python version (currently 3.8).
 # That means, we need to update the requirements when we update the pytorch version OR when we change cuda version in OSS.
 
 # Another thing to note is that torch-cluster, torch-scatter and torch-sparse wheels are
