@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "torch_points3d"
-version = "1.4.2" # This will be overriden by the CI at publish time
+version = "1.4.3" # This will be overriden by the CI at publish time
 description = "Point Cloud Deep Learning Extension Library for PyTorch"
 authors = ["Thomas Chaton <thomas.chaton.ai@gmail.com>", "Nicolas Chaulet <nicolas.chaulet@gmail.com>"]
 packages = [
@@ -36,6 +36,7 @@ torch-points-kernels = {url = "https://pypi.dev.promaton.ai/packages/torch_point
 torch-cluster = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_cluster-1.6.0-cp38-cp38-linux_x86_64.whl"}
 torch-scatter = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_scatter-2.0.9-cp38-cp38-linux_x86_64.whl"}
 torch-sparse = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_sparse-0.6.13-cp38-cp38-linux_x86_64.whl"}
+torch-geometric = "^1.7.2"
 
 [tool.black]
 line-length = 120
