@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "torch_points3d"
-version = "1.4.0" # This will be overriden by the CI at publish time
+version = "1.4.3" # This will be overriden by the CI at publish time
 description = "Point Cloud Deep Learning Extension Library for PyTorch"
 authors = ["Thomas Chaton <thomas.chaton.ai@gmail.com>", "Nicolas Chaulet <nicolas.chaulet@gmail.com>"]
 packages = [
@@ -25,11 +25,14 @@ omegaconf = "^2.1.1"
 # when we update the framework OR when we change the dependencies such as torch-1.10.0-cu113 or Python version (currently 3.8).
 # That means, we need to update the requirements when we update the pytorch version OR when we change cuda version in OSS.
 
+# We set the versions for torch-{cluster, scatter, sparse} fixed here because you need torch installed before poetry can build these.
+# See https://github.com/rusty1s/pytorch_scatter/issues/252. We have to use specific wheels instead.
+
 # Another thing to note is that torch-cluster, torch-scatter and torch-sparse wheels are
 # provided by pyg.org, while torch-points-kernels whell is provided by promaton.
 # Please see OSS README for more details on how to build the wheels.
 
-torch-points-kernels = {url = "https://pypi.dev.promaton.ai/packages/torch_points_kernels-0.7.0-cp38-cp38-linux_x86_64.whl"}
+torch-points-kernels = {url = "https://pypi.dev.promaton.ai/packages/torch_points_kernels-0.7.1-cp38-cp38-linux_x86_64.whl"}
 torch-cluster = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_cluster-1.6.0-cp38-cp38-linux_x86_64.whl"}
 torch-scatter = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_scatter-2.0.9-cp38-cp38-linux_x86_64.whl"}
 torch-sparse = {url = "https://data.pyg.org/whl/torch-1.11.0%2Bcu113/torch_sparse-0.6.13-cp38-cp38-linux_x86_64.whl"}
