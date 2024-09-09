@@ -37,7 +37,7 @@ torch-sparse = {url = "https://data.pyg.org/whl/torch-2.0.0%2Bcu117/torch_sparse
 torch-geometric = "^1.7.2"
 
 # Additional constraints on no major version creep
-torch = "^1.9.0"
+torch = "~2.0.1"
 numba = "^0.60.0"
 numpy = "<2.0.0"
 
