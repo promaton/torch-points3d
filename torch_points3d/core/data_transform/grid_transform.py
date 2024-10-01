@@ -116,7 +116,7 @@ class GridSampling3D:
 
         coords = torch.round((data.pos) / self._grid_size)
         if "batch" not in data:
-            cluster = grid_cluster(coords, None, torch.tensor([1, 1, 1]))
+            cluster = grid_cluster(coords, torch.tensor([1, 1, 1]))
         else:
             cluster = voxel_grid(coords, 1, data.batch)
         cluster, unique_pos_indices = consecutive_cluster(cluster)
