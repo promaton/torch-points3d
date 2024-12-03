@@ -18,13 +18,14 @@ omegaconf = "^2.1.1"
 # The original requirements are quite diverse and are not suited for our purposes (i.e. running KPConv in OSS).
 
 # Another thing to note is that torch-cluster, torch-scatter and torch-sparse wheels are
-# provided by pyg.org, while torch-points-kernels whell is provided by Promaton.
+# originally provided by pyg.org, while torch-points-kernels wheel is provided by Promaton.
+# Since we have download timeout issues with pyg sometimes, we mirror these wheels on our side.
 # Please see https://github.com/promaton/ios/tree/main/projects/oss#third-party-libraries for more details on how to build the wheels.
 
 torch-points-kernels = { version = "==0.7.2+cu121", source = "promaton" }
-torch-cluster = { version = "==1.6.3+pt24cu121", source = "pyg" }
-torch-scatter = { version = "==2.1.2+pt24cu121", source = "pyg" }
-torch-sparse = { version = "==0.6.18+pt24cu121", source = "pyg" }
+torch-cluster = { version = "==1.6.3+pt24cu121", source = "promaton" }
+torch-scatter = { version = "==2.1.2+pt24cu121", source = "promaton" }
+torch-sparse = { version = "==0.6.18+pt24cu121", source = "promaton" }
 torch-geometric = "^2.6.1"
 
 # Additional constraints on no major version creep
@@ -46,9 +47,4 @@ priority = "default"
 [[tool.poetry.source]]
 name = "promaton"
 url = "https://pypi.dev.promaton.ai"
-priority = "supplemental"
-
-[[tool.poetry.source]]
-name = "pyg"
-url = "https://data.pyg.org/whl/torch-2.4.0%2Bcu121.html"
 priority = "supplemental"
