@@ -22,7 +22,7 @@ omegaconf = "^2.1.1"
 # Since we have download timeout issues with pyg sometimes, we mirror these wheels on our side.
 # Please see https://github.com/promaton/ios/tree/main/projects/oss#third-party-libraries for more details on how to build the wheels.
 
-torch-points-kernels = { version = "==0.7.2+cu121", source = "promaton" }
+torch-points-kernels = { version = "==0.7.3+cu121", source = "promaton" }
 torch-cluster = { version = "==1.6.3+pt24cu121", source = "promaton" }
 torch-scatter = { version = "==2.1.2+pt24cu121", source = "promaton" }
 torch-sparse = { version = "==0.6.18+pt24cu121", source = "promaton" }
