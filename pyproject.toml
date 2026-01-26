@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "torch_points3d"
-version = "1.4.7+cu121" # This will be overriden by the CI at publish time
+version = "1.4.7+cu124" # This will be overriden by the CI at publish time
 description = "Point Cloud Deep Learning Extension Library for PyTorch"
 authors = ["Thomas Chaton <thomas.chaton.ai@gmail.com>", "Nicolas Chaulet <nicolas.chaulet@gmail.com>"]
 packages = [
@@ -22,14 +22,14 @@ omegaconf = "^2.1.1"
 # Since we have download timeout issues with pyg sometimes, we mirror these wheels on our side.
 # Please see https://github.com/promaton/ios/tree/main/projects/oss#third-party-libraries for more details on how to build the wheels.
 
-torch-points-kernels = { version = "==0.7.2+cu121", source = "promaton" }
-torch-cluster = { version = "==1.6.3+pt24cu121", source = "promaton" }
-torch-scatter = { version = "==2.1.2+pt24cu121", source = "promaton" }
-torch-sparse = { version = "==0.6.18+pt24cu121", source = "promaton" }
+torch-points-kernels = { version = "==0.7.3+cu124", source = "promaton" }
+torch-cluster = { version = "==1.6.3+pt26cu124", source = "promaton" }
+torch-scatter = { version = "==2.1.2+pt26cu124", source = "promaton" }
+torch-sparse = { version = "==0.6.18+pt26cu124", source = "promaton" }
 torch-geometric = "^2.6.1"
 
 # Additional constraints on no major version creep
-torch = "~2.4.1"
+torch = "~2.6.0"
 numba = "^0.60.0"
 numpy = "<2.0.0"
 
